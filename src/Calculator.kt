@@ -2,12 +2,11 @@ fun main(){
     println("\n***********************\nLambton Grade Calculator:")
 
     val RJ1 = getGrade(90.0, 5.0) // done
+    val RJ2 = getGrade(90.0, 10.0) // done
     val PIP = getGrade(80.0, 10.0) //done
     val PSR = getGrade(90.0, 10.0) //done
-
-    val RJ2 = getGrade(0.0, 10.0) // wait
-    val PS = getGrade(0.0, 30.0) // wait
-    val QUIZ = getGrade(0.0, 35.0) // wait
+    val PS = getGrade(90.0, 30.0) // done
+    val QUIZ = getGrade(60.0, 35.0) // done
 
     val score = RJ1 + RJ2 + PIP + PSR + PS + QUIZ
     val letter = getLetter(score)
