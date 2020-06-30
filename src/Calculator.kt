@@ -1,17 +1,26 @@
 fun main(){
     println("\n***********************\nLambton Grade Calculator:")
 
-    val RJ1 = getGrade(90.0, 5.0) // done
+    val RJ1 = getGrade(85.0, 5.0) // done
     val RJ2 = getGrade(90.0, 10.0) // done
-    val PIP = getGrade(80.0, 10.0) //done
-    val PSR = getGrade(90.0, 10.0) //done
-    val PS = getGrade(90.0, 30.0) // done
-    val QUIZ = getGrade(60.0, 35.0) // done
+    val PIP = getGrade(85.0, 20.0) //done
+    val PSR = getGrade(90.0, 30.0) //done
+    //val PS = getGrade(90.0, 30.0) // done
+    val QUIZ = getGrade(68.0.getScoreFromTrueAnswerNumber(), 35.0) // done
 
-    val score = RJ1 + RJ2 + PIP + PSR + PS + QUIZ
+    val score = RJ1 + RJ2 + PIP + PSR + QUIZ //+ PS
     val letter = getLetter(score)
 
-    println("1) My score is: $score\n2) My letter is: $letter\n***********************\n@canerkaseler")
+    println("2) My score is: $score\n3) My letter is: $letter\n***********************\n@canerkaseler")
+}
+
+private fun Double.getScoreFromTrueAnswerNumber(): Double {
+    //0.8 = 80 questions
+    val score = this / 0.8
+
+    println("1) 80/${this} true answers score is $score")
+
+    return score
 }
 
 private fun getGrade(score: Double, weight: Double): Double {
