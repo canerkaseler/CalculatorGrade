@@ -6,7 +6,7 @@ fun main(){
     val PIP = getGrade(85.0, 20.0) //done
     val PSR = getGrade(90.0, 30.0) //done
     //val PS = getGrade(90.0, 30.0) // done
-    val QUIZ = getGrade(68.0.getScoreFromTrueAnswerNumber(), 35.0) // done
+    val QUIZ = getGrade(64.0.getScoreFromTrueAnswerNumber(), 35.0) // done
 
     val score = RJ1 + RJ2 + PIP + PSR + QUIZ //+ PS
     val letter = getLetter(score)
