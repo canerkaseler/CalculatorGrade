@@ -1,24 +1,28 @@
 fun main(){
     println("\n***********************\nLambton Grade Calculator:")
 
-    val RJ1 = getGrade(85.0, 5.0) // done
-    val RJ2 = getGrade(90.0, 10.0) // done
-    val PIP = getGrade(85.0, 20.0) //done
-    val PSR = getGrade(90.0, 30.0) //done
+    val RJ1 = getGrade(70.0, 5.0) // done
+    val RJ2 = getGrade(77.0, 10.0) // done
+    val PIP = getGrade(68.0, 20.0) //done
+    val PSR = getGrade(76.0, 30.0) //done
     //val PS = getGrade(90.0, 30.0) // done
-    val QUIZ = getGrade(64.0.getScoreFromTrueAnswerNumber(), 35.0) // done
+    val QUIZ = getGrade(24.0.getScoreFromTrueAnswerNumber(), 35.0) // done
 
     val score = RJ1 + RJ2 + PIP + PSR + QUIZ //+ PS
     val letter = getLetter(score)
 
-    println("2) My score is: $score\n3) My letter is: $letter\n***********************\n@canerkaseler")
+    println("2) My score is: $score\n3) My letter is: $letter")
+
+    //Calculate estimated GPA.
+    getCalculatedGPA(score)
+    println("***********************\n@canerkaseler")
 }
 
 private fun Double.getScoreFromTrueAnswerNumber(): Double {
-    //0.8 = 80 questions
-    val score = this / 0.8
+    //0.5 = 50 questions
+    val score = this / 0.5
 
-    println("1) 80/${this} true answers score is $score")
+    println("1) 50/${this} true answers score is $score")
 
     return score
 }
@@ -27,9 +31,39 @@ private fun getGrade(score: Double, weight: Double): Double {
     return score * weight / 100.0
 }
 
+private fun getCalculatedGPA(score: Double){
+    val lesson1 = getLetter(78.0).split(" ")[1].toDouble() //   B+
+    val lesson2 = getLetter(81.0).split(" ")[1].toDouble() //   A-
+    val lesson3 = getLetter(score).split(" ")[1].toDouble() // C
+    val lesson4 = getLetter(61.0).split(" ")[1].toDouble() //   C-
+    val lesson5 = getLetter(63.0).split(" ")[1].toDouble() //   C
+    val lesson6 = getLetter(63.0).split(" ")[1].toDouble() //   C
+    val lessonCoop = getLetter(61.0).split(" ")[1].toDouble() //   C- • Co-Op
+
+    val totalCreditValue = (lesson1 * 4) +
+                        (lesson2 * 4) +
+                        (lesson3 * 2) +
+                        (lesson4 * 2) +
+                        (lesson5 * 2) +
+                        (lesson6 * 4) +
+                        (lessonCoop * 1)
+
+    val gpaFirstTerm = 3.13
+    val gpaSecondTerm = totalCreditValue / 19
+
+    println("4) Min: 2.47 but your estimated this term GPA is: $gpaSecondTerm")
+    println("5) Your estimated two term average GPA is: ${(gpaFirstTerm + gpaSecondTerm) / 2}")
+
+    if ((gpaFirstTerm + gpaSecondTerm) / 2 > 2.8){
+        println("6) Co-Op ELIGIBLE: ${(gpaFirstTerm + gpaSecondTerm) / 2} > 2.80")
+    }
+    else
+        println("6) Co-Op is NOT eligible: ${(gpaFirstTerm + gpaSecondTerm) / 2} < 2.80")
+}
+
 private fun getLetter(score: Double): String{
 
-    var result: String
+    val result: String
     val scoreNum = score.toInt()
 
     if (scoreNum in 94..100)
