@@ -3,12 +3,13 @@ fun main(){
 
     val RJ1 = getGrade(70.0, 5.0) // done
     val RJ2 = getGrade(77.0, 10.0) // done
-    val PIP = getGrade(68.0, 20.0) //done
     val PSR = getGrade(76.0, 30.0) //done
+    val PIP = getGrade(65.0, 20.0) //done
+    val MSP = getGrade(75.0, 15.0) //done
     //val PS = getGrade(90.0, 30.0) // done
-    val QUIZ = getGrade(24.0.getScoreFromTrueAnswerNumber(), 35.0) // done
+    val QUIZ = getGrade(48.0.getScoreFromTrueAnswerNumber(), 20.0) // done
 
-    val score = RJ1 + RJ2 + PIP + PSR + QUIZ //+ PS
+    val score = RJ1 + RJ2 + PIP + PSR + MSP + QUIZ //+ PS
     val letter = getLetter(score)
 
     println("2) My score is: $score\n3) My letter is: $letter")
@@ -19,10 +20,10 @@ fun main(){
 }
 
 private fun Double.getScoreFromTrueAnswerNumber(): Double {
-    //0.5 = 50 questions
-    val score = this / 0.5
+    //0.6 = 60 questions
+    val score = this / 0.6
 
-    println("1) 50/${this} true answers score is $score")
+    println("1) 60/${this} true answers score is $score")
 
     return score
 }
@@ -34,10 +35,10 @@ private fun getGrade(score: Double, weight: Double): Double {
 private fun getCalculatedGPA(score: Double){
     val lesson1 = getLetter(78.0).split(" ")[1].toDouble() //   B+
     val lesson2 = getLetter(81.0).split(" ")[1].toDouble() //   A-
-    val lesson3 = getLetter(score).split(" ")[1].toDouble() // C
-    val lesson4 = getLetter(61.0).split(" ")[1].toDouble() //   C-
-    val lesson5 = getLetter(63.0).split(" ")[1].toDouble() //   C
-    val lesson6 = getLetter(63.0).split(" ")[1].toDouble() //   C
+    val lesson3 = getLetter(63.0).split(" ")[1].toDouble() //   C
+    val lesson4 = getLetter(score).split(" ")[1].toDouble() // B
+    val lesson5 = getLetter(61.0).split(" ")[1].toDouble() //   C-
+    val lesson6 = getLetter(61.0).split(" ")[1].toDouble() //   C-
     val lessonCoop = getLetter(61.0).split(" ")[1].toDouble() //   C- • Co-Op
 
     val totalCreditValue = (lesson1 * 4) +
